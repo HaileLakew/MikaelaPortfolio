@@ -9,10 +9,8 @@ import * as THREE from "three";
 export default function LandingPage () {
     
     return (
-        <>
-            <pointLight position={[10, 10, 5]} intensity={0.5} />
-            
-            <ambientLight intensity={.1}/>
+        <>            
+            <ambientLight intensity={.25}/>
 
             <SphereBlobs/>
             <Preload/>
@@ -30,7 +28,7 @@ export default function LandingPage () {
 }
 
 function SphereBlobs() {
-    const sizeFactor = 1;
+    const sizeFactor = 1.25;
 
     const sphereProperties = [
         {
@@ -75,7 +73,7 @@ function SphereBlobs() {
         groupRef.current.rotation.x = clock.getElapsedTime() / 5;
         groupRef.current.rotation.y = clock.getElapsedTime() / 5;
 
-        groupRef.current.position.z = Math.sin(clock.getElapsedTime()) - 5;
+        groupRef.current.position.z = Math.sin(clock.getElapsedTime() / 2) - 5;
 
         sphereProperties.forEach((sphere)=>{
 

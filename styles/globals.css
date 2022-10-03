@@ -1,3 +1,18 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.noise {
+  pointer-events: none;
+    width: 100vw;
+    height: 120vh;
+    background-image: url(/noise.png);
+    background-size: auto;
+    background-repeat: repeat;
+    mix-blend-mode: overlay;
+    opacity: .2;
+  }
+
+  * {
+    font-family: 'moret';
+  }

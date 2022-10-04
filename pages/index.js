@@ -1,44 +1,31 @@
 
-import { motion } from 'framer-motion';
+import { motion, useDragControls, useMotionValue, useSpring } from 'framer-motion';
 import Head from 'next/head'
 import { useEffect, useState } from 'react';
 import Navbar from './components/Navbar';
 import LandingPage from './sections/LandingPage'
 
 export default function Home() {
-  const [mousePosition, setMousePosition] = useState({x: 0, y: 0});
   const [cursorVariant, setCursorVariant] = useState("default");
 
+  const mouseX = useSpring(0, { stiffness: 100, damping: 10, restDelta: 2, mass: 0.5 })
+  const mouseY = useSpring(0, { stiffness: 100, damping: 10, restDelta: 2, mass: 0.5 })
 
-  const mouseMove = e => {
-    setMousePosition({
-      x: e.clientX,
-      y: e.clientY
-    })
+  function handleMouse(event) {
+    mouseX.set(event.pageX - (cursorVariant === "text" ? 75 : 16))
+    mouseY.set(event.pageY - (cursorVariant === "text" ? 75 : 16))
   }
-
-  useEffect(() => {
-    document.querySelectorAll('.pointerBody').forEach((body)=>{
-      body.addEventListener("mousemove", mouseMove);
-    })
-
-    return () => {
-      document.querySelectorAll('.pointerBody').forEach((body)=>{
-        body.removeEventListener("mousemove", mouseMove);
-      })
-    }
-  }, []);
 
   const variants = {
     default: {
-      x: mousePosition.x - 16,
-      y: mousePosition.y - 16,
+      height: 32,
+      width: 32,
+      backgroundColor: "#B86F52",
+      mixBlendMode: "unset"
     },
     text: {
       height: 150,
       width: 150,
-      x: mousePosition.x - 75,
-      y: mousePosition.y - 75,
       backgroundColor: "#d8c1a7",
       mixBlendMode: "difference"
     }
@@ -55,15 +42,30 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
         <link rel="stylesheet" href='https://use.typekit.net/hcu8dkr.css'/>
       </Head>
-
-      <Navbar/>
-
-      <div className="bg-[#d8c1a7] snap-y snap-mandatory h-screen overflow-scroll">
       
+      <div onMouseMove={handleMouse}>
+        <Navbar textEnter={textEnter} textLeave={textLeave}/>
+      </div>
+
+      <motion.div
+        className='cursor z-50'
+        variants={variants}
+        animate={cursorVariant}
+        style={{
+          top: mouseY,
+          left: mouseX
+        }}/>
+
+      <div 
+          className="bg-[#d8c1a7] snap-y snap-mandatory h-screen overflow-scroll" 
+          id="body"
+          onMouseMove={handleMouse}
+        >
+ 
         <LandingPage />
 
-        <div className="pointerBody">
-          <div className="h-screen w-screen snap-start">
+        <div>
+          <div className="h-screen w-screen snap-center">
             <div className='text-9xl text-center' onMouseEnter={textEnter} onMouseLeave={textLeave}>
               Yeet 
             </div>
@@ -76,13 +78,8 @@ export default function Home() {
           </div>
         </div>
 
-        <motion.div
-            className='cursor'
-            variants={variants}
-            animate={cursorVariant}
-          />
       </div>
-
+      
       <footer> </footer>
     </div>
   )

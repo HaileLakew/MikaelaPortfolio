@@ -1,8 +1,8 @@
-import { AdaptiveDpr, AdaptiveEvents, BakeShadows, Float, Html, Instance, Instances, MeshDistortMaterial, Preload } from "@react-three/drei";
+import { AdaptiveDpr, AdaptiveEvents, BakeShadows, Float, Instance, Instances, MeshDistortMaterial, Preload } from "@react-three/drei";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { EffectComposer, Vignette } from "@react-three/postprocessing";
 import { motion, useSpring } from "framer-motion";
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import * as THREE from "three";
 
 export default function LandingPage () {
@@ -21,7 +21,8 @@ export default function LandingPage () {
             >
                 <Canvas 
                     performance={{ min: 0.1 }} gl={{ antialias: false }}
-                    onCreated={({ gl }) => ((gl.shadowMap.autoUpdate = false), (gl.shadowMap.needsUpdate = true))}>
+                    onCreated={({ gl }) => ((gl.shadowMap.autoUpdate = false), (gl.shadowMap.needsUpdate = true))}
+                    >
 
                     <pointLight intensity={1.25} position={[10, 10, 10]}/>
 
@@ -41,22 +42,21 @@ export default function LandingPage () {
             
             <div className="noise relative" style={{bottom: '110vh'}}/>
 
-            <div className="relative bottom-[190vh] snap-center text-9xl font-bold text-black mix-blend-overlay">
+            <div className="relative bottom-[190vh] snap-center text-9xl font-bold opacity-70 text-white mix-blend-overlay pointer-events-none">
                 <div className="h-36 overflow-hidden">
                     <div className="flex justify-center"> 
                         {`Mikaela Lakew`.split("").map((token, index)=>{
                             return(
                                 <motion.div key={index} style={{margin: `0 ${10 * (token === ' ')}px`}} 
-                                    initial={{ opacity: 0, y: '100%' }} 
-                                    whileInView={{ opacity: 1, y:0, transition: {delay: index/20, duration: 1}}}>
+                                    initial={{ opacity: 0, y: '100%' }} whileInView={{ opacity: 1, y:0, transition: {delay: index/20, duration: 1}}}>
                                         {token}
                                 </motion.div>)
                         })}
                     </div>
-                  </div>
+                </div>
+
                 <motion.div className="flex justify-center"
-                    initial={{  x: '3%' }}
-                    whileInView={{x: 0, transition: {delay: 1.5, duration: 1}}}> 
+                    initial={{  x: '3%' }} whileInView={{x: 0, transition: {delay: 1.5, duration: 1}}}> 
                         Graphic Design
                         <motion.div
                             initial={{ opacity: 0, y: '10%' }}

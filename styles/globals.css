@@ -14,15 +14,12 @@
   }
 
   * {
+      cursor: none;
       font-family: 'moret';
     }
 
-  .pointerBody {
-    cursor: none;
-  }
-
   .cursor {
-    opacity: 0;
+    pointer-events: none;
     background-color: #B86F52;
     height: 32px;
     width: 32px;
@@ -30,10 +27,5 @@
     position: fixed;
     top: 0;
     left: 0;
-    pointer-events: none;
-  }
-
-  .pointerBody:hover ~ .cursor {
-    opacity: 1;
   }
 

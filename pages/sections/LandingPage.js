@@ -23,28 +23,25 @@ export default function LandingPage () {
                     performance={{ min: 0.1 }} gl={{ antialias: false }}
                     onCreated={({ gl }) => ((gl.shadowMap.autoUpdate = false), (gl.shadowMap.needsUpdate = true))}>
 
-                    <pointLight intensity={1} position={[10, 10, 10]}/>
+                    <pointLight intensity={1.25} position={[10, 10, 10]}/>
 
                     <SphereBlobs/>
                     <Preload/>
 
                     <EffectComposer>
-                        <Vignette eskil={false} offset={0.1} darkness={1} />
+                        <Vignette eskil={false} offset={0.1} darkness={.7} />
                     </EffectComposer>
 
                     <BakeShadows />
                     <AdaptiveDpr pixelated/>
                     <AdaptiveEvents />
-                    <Html fullscreen>
-                        <div className="w-screen h-[120vh] opacity-20 bg-gradient-to-tr from-amber-700 to-[#F2EBE3]"/>
-                    </Html>
                 </Canvas>
  
             </motion.div>
             
             <div className="noise relative" style={{bottom: '110vh'}}/>
 
-            <div className="relative bottom-[200vh] snap-center text-9xl font-bold text-black mix-blend-soft-light">
+            <div className="relative bottom-[200vh] snap-center text-9xl font-bold text-black mix-blend-overlay">
                 <div className="h-36 overflow-hidden">
                     <div className="flex justify-center"> 
                         {`Mikaela Lakew`.split("").map((token, index)=>{
@@ -113,9 +110,9 @@ function SphereBlobs() {
 
     useFrame(({mouse, clock})=>{
         groupRef.current.rotation.x = clock.getElapsedTime() / 5;
-        groupRef.current.rotation.y = clock.getElapsedTime() / 5;
+        groupRef.current.rotation.z = clock.getElapsedTime() / 5;
 
-        groupRef.current.position.z = Math.sin(clock.getElapsedTime() / 2) - 7;
+        groupRef.current.position.z = Math.sin(clock.getElapsedTime() / 2) - 10;
 
         sphereProperties.forEach((sphere)=>{
 
@@ -143,13 +140,12 @@ function SphereBlobs() {
             <Instances>
                 <sphereGeometry args={[1.25, 16, 16]}/>
                 <MeshDistortMaterial toneMapped={false} fog={false}
+                    // wireframe
                     speed={1}
-                    factor={1}
+                    factor={10}
                     bumpScale={0.005}
-                    clearcoat={1}
-                    clearcoatRoughness={1}
-                    radius={1}
-                    distort={0.5}
+                    radius={1.5}
+                    distort={0.75}
                 />
                 {sphereProperties.map((sphere, index) => {
                     const randomFactor = Math.random() * 20 + index;

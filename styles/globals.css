@@ -9,8 +9,8 @@
     background-image: url(/noise.png);
     background-size: auto;
     background-repeat: repeat;
-    mix-blend-mode: overlay;
-    opacity: .2;
+    /* mix-blend-mode: soft-light; */
+    opacity: .07;
   }
 
   * {

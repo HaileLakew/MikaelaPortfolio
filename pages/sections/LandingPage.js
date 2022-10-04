@@ -2,7 +2,7 @@ import { AdaptiveDpr, AdaptiveEvents, BakeShadows, Float, Html, Instance, Instan
 import { Canvas, useFrame } from "@react-three/fiber";
 import { EffectComposer, Vignette } from "@react-three/postprocessing";
 import { motion, useSpring } from "framer-motion";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import * as THREE from "three";
 
 export default function LandingPage () {
@@ -44,7 +44,7 @@ export default function LandingPage () {
             
             <div className="noise relative" style={{bottom: '110vh'}}/>
 
-            <div className="relative bottom-[200vh] snap-center text-9xl font-bold text-black mix-blend-soft-light ">
+            <div className="relative bottom-[200vh] snap-center text-9xl font-bold text-black mix-blend-soft-light">
                 <div className="h-36 overflow-hidden">
                     <div className="flex justify-center"> 
                         {`Mikaela Lakew`.split("").map((token, index)=>{
@@ -71,7 +71,6 @@ export default function LandingPage () {
 }
 
 function SphereBlobs() {
-    let sizeFactor = 1.25;
 
     const sphereProperties = [
         {
@@ -79,8 +78,8 @@ function SphereBlobs() {
             altRef: useRef(),
             position: [2, -2, 2],
             altPosition: {
-                x: useSpring(2, { duration: 750}),
-                y: useSpring(-2, { duration: 750}),
+                x: useSpring(2, { duration: 1500}),
+                y: useSpring(-2, { duration: 1500}),
             },
             scale: 3.5,
             color: useSpring('#a34100')
@@ -90,8 +89,8 @@ function SphereBlobs() {
             altRef: useRef(),
             position: [-1, 4, 0],
             altPosition: {
-                x: useSpring(-1, { duration: 750}),
-                y: useSpring(4, { duration: 750}),
+                x: useSpring(-1, { duration: 1500}),
+                y: useSpring(4, { duration: 1500}),
             },
             scale: 3,
             color: useSpring('#F29F05')
@@ -102,8 +101,8 @@ function SphereBlobs() {
             altRef: useRef(),
             position: [-5, -1.5, -3],
             altPosition: {
-                x: useSpring(-5, { duration: 750}),
-                y: useSpring(-1.5, { duration: 750}),
+                x: useSpring(-5, { duration: 1500}),
+                y: useSpring(-1.5, { duration: 1500}),
             },
             scale: 2.5,
             color: useSpring('#731919')

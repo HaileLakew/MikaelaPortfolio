@@ -14,5 +14,25 @@
   }
 
   * {
-    font-family: 'moret';
+      font-family: 'moret';
+    }
+
+  .pointerBody {
+    cursor: none;
+  }
+
+  .cursor {
+    opacity: 0;
+    background-color: #B86F52;
+    height: 32px;
+    width: 32px;
+    border-radius: 50%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+  }
+
+  .pointerBody:hover ~ .cursor {
+    opacity: 1;
   }

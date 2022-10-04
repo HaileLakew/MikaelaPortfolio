@@ -2,6 +2,7 @@
 import { motion } from 'framer-motion';
 import Head from 'next/head'
 import { useEffect, useState } from 'react';
+import Navbar from './components/Navbar';
 import LandingPage from './sections/LandingPage'
 
 export default function Home() {
@@ -55,7 +56,10 @@ export default function Home() {
         <link rel="stylesheet" href='https://use.typekit.net/hcu8dkr.css'/>
       </Head>
 
+      <Navbar/>
+
       <div className="bg-[#d8c1a7] snap-y snap-mandatory h-screen overflow-scroll">
+      
         <LandingPage />
 
         <div className="pointerBody">

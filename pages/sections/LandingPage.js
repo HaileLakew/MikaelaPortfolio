@@ -7,13 +7,13 @@ import * as THREE from "three";
 
 export default function LandingPage () {
     return (
-        <div className='snap-center max-h-[120vh]'>
+        <div className='snap-center max-h-[110vh]'>
             <motion.div 
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1}}
                 viewport={{ once: true }}
                 style={{
-                    height: '110vh', 
+                    height: '100vh', 
                     width: '100vw', 
                     color: '#F2EBE3', 
                     filter: 'blur(50px)'
@@ -41,7 +41,7 @@ export default function LandingPage () {
             
             <div className="noise relative" style={{bottom: '110vh'}}/>
 
-            <div className="relative bottom-[200vh] snap-center text-9xl font-bold text-black mix-blend-overlay">
+            <div className="relative bottom-[190vh] snap-center text-9xl font-bold text-black mix-blend-overlay">
                 <div className="h-36 overflow-hidden">
                     <div className="flex justify-center"> 
                         {`Mikaela Lakew`.split("").map((token, index)=>{

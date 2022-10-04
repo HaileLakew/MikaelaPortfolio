@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .noise {
-  pointer-events: none;
+    pointer-events: none;
     width: 100vw;
     height: 120vh;
     background-image: url(/noise.png);
@@ -36,3 +36,4 @@
   .pointerBody:hover ~ .cursor {
     opacity: 1;
   }
+

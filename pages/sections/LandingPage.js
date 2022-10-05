@@ -73,7 +73,18 @@ function SphereBlobs() {
         {
             ref: useRef(),
             altRef: useRef(),
-            position: [2, -2, 2],
+            position: [0, 0, 0],
+            altPosition: {
+                x: useSpring(2, { duration: 1500}),
+                y: useSpring(-2, { duration: 1500}),
+            },
+            scale: 3.5,
+            color: useSpring('#a34100')
+        },
+        {
+            ref: useRef(),
+            altRef: useRef(),
+            position: [2, -2, 0],
             altPosition: {
                 x: useSpring(2, { duration: 1500}),
                 y: useSpring(-2, { duration: 1500}),
@@ -96,13 +107,13 @@ function SphereBlobs() {
         {
             ref: useRef(),
             altRef: useRef(),
-            position: [-5, -1.5, -3],
+            position: [-5, -1.5, 0],
             altPosition: {
                 x: useSpring(-5, { duration: 1500}),
                 y: useSpring(-1.5, { duration: 1500}),
             },
             scale: 2.5,
-            color: useSpring('#731919')
+            color: useSpring('#610000')
         },
     ]
 
@@ -118,12 +129,12 @@ function SphereBlobs() {
 
             sphere.ref.current.rotation.y = THREE.MathUtils.lerp(
                 sphere.ref.current.rotation.y,
-                mouse.x * Math.PI,
+                mouse.x * Math.PI + Math.random(),
                 0.007
             );
             sphere.ref.current.rotation.x = THREE.MathUtils.lerp(
                 sphere.ref.current.rotation.x,
-                mouse.y * Math.PI,
+                mouse.y * Math.PI + Math.random(),
                 0.007
             );
             
@@ -166,7 +177,7 @@ function SphereBlobs() {
                                     sphere.altPosition.y.set(sphere.position[1])
                                 }} 
                                 onClick={(e) => {
-                                    sphere.color.set(`rgb(${randomBetween(90, 243)},${randomBetween(39, 180)},${randomBetween(6, 46)})`);
+                                    sphere.color.set(`rgb(${randomBetween(90, 243)},${randomBetween(39, 120)},${randomBetween(6, 46)})`);
                                 }}
                             />
                             <Instance ref={sphere.altRef} color={sphere.color.get()} scale={sphere.scale} position={sphere.position} />

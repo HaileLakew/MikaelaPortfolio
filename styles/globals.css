@@ -9,11 +9,11 @@
     background-image: url(/noise.png);
     background-size: auto;
     background-repeat: repeat;
-    /* mix-blend-mode: soft-light; */
     opacity: .07;
   }
 
   * {
+      user-select: none;
       cursor: none;
       font-family: 'moret';
     }

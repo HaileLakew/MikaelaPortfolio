@@ -10,7 +10,7 @@ export default function LandingPage () {
         <div className='snap-center max-h-[110vh]'>
             <motion.div 
                 initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1}}
+                whileInView={{ opacity: 1, transition: { duration: 2 } }}
                 viewport={{ once: true }}
                 style={{
                     height: '100vh', 
@@ -42,12 +42,12 @@ export default function LandingPage () {
             
             <div className="noise relative" style={{bottom: '110vh'}}/>
 
-            <div className="relative bottom-[190vh] snap-center text-9xl font-bold opacity-70 text-white mix-blend-overlay pointer-events-none">
-                <div className="h-36 overflow-hidden">
+            <div className="relative bottom-[190vh] snap-center text-5xl md:text-8xl lg:text-9xl font-bold opacity-70 text-white mix-blend-overlay pointer-events-none">
+                <div className="m-10 overflow-hidden">
                     <div className="flex justify-center"> 
                         {`Mikaela Lakew`.split("").map((token, index)=>{
                             return(
-                                <motion.div key={index} style={{margin: `0 ${10 * (token === ' ')}px`}} 
+                                <motion.div key={index} style={{margin: `0 ${7 * (token === ' ')}px`}} 
                                     initial={{ opacity: 0, y: '100%' }} whileInView={{ opacity: 1, y:0, transition: {delay: index/20, duration: 1}}}>
                                         {token}
                                 </motion.div>)
@@ -57,7 +57,7 @@ export default function LandingPage () {
 
                 <motion.div className="flex justify-center"
                     initial={{  x: '3%' }} whileInView={{x: 0, transition: {delay: 1.5, duration: 1}}}> 
-                        Graphic Design
+                        <span className="">Graphic Design</span>
                         <motion.div
                             initial={{ opacity: 0, y: '10%' }}
                             whileInView={{ opacity: 1, y:0, transition: {delay: 1.75, duration: 1}}}>er</motion.div>

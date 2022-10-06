@@ -48,7 +48,7 @@ export default function Home() {
       </div>
 
       <motion.div
-        className='cursor z-50'
+        className='cursor z-50 hidden md:block'
         variants={variants}
         animate={cursorVariant}
         style={{
@@ -67,13 +67,13 @@ export default function Home() {
         <div>
           <div className="h-screen w-screen snap-center">
             <div className='text-9xl text-center' onMouseEnter={textEnter} onMouseLeave={textLeave}>
-              Yeet 
+              Lorem Ipsum 
             </div>
           </div>
 
           <div className="h-screen w-screen snap-center">
             <div className='text-9xl'>
-              Yeet 
+              Lorem Ipsum 
             </div>
           </div>
         </div>

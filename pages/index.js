@@ -3,6 +3,7 @@ import { motion, useDragControls, useMotionValue, useSpring } from 'framer-motio
 import Head from 'next/head'
 import { useEffect, useState } from 'react';
 import Navbar from './components/Navbar';
+import Introduction from './sections/Introduction';
 import LandingPage from './sections/LandingPage'
 
 export default function Home() {
@@ -31,8 +32,10 @@ export default function Home() {
     }
   }
 
-  const textEnter = () => setCursorVariant("text");
-  const textLeave = () => setCursorVariant("default");
+  const mouseActions = {
+    onMouseEnter: () => setCursorVariant("text"),
+    onMouseLeave: () => setCursorVariant("default")
+  }
 
   return (
     <div>
@@ -41,10 +44,15 @@ export default function Home() {
         <meta name="description" content="Mikaela Personal Portfolio" />
         <link rel="icon" href="/favicon.ico" />
         <link rel="stylesheet" href='https://use.typekit.net/hcu8dkr.css'/>
+        <link rel="preconnect" href="https://fonts.googleapis.com"/>
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+        <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100&display=swap" rel="stylesheet"/>
       </Head>
       
       <div onMouseMove={handleMouse}>
-        <Navbar textEnter={textEnter} textLeave={textLeave}/>
+        <Navbar 
+          textEnter={mouseActions.onMouseEnter} 
+          textLeave={mouseActions.onMouseLeave}/>
       </div>
 
       <motion.div
@@ -57,26 +65,22 @@ export default function Home() {
         }}/>
 
       <div 
-          className="bg-[#d8c1a7] snap-y snap-mandatory h-screen overflow-scroll" 
+          className="bg-[#f2ebe3] snap-y snap-mandatory h-screen overflow-scroll" 
           id="body"
           onMouseMove={handleMouse}
         >
  
         <LandingPage />
 
-        <div>
-          <div className="h-screen w-screen snap-center">
-            <div className='text-9xl text-center' onMouseEnter={textEnter} onMouseLeave={textLeave}>
-              Lorem Ipsum 
-            </div>
-          </div>
+        <Introduction mouseActions={mouseActions}/>
+
 
           <div className="h-screen w-screen snap-center">
             <div className='text-9xl'>
               Lorem Ipsum 
             </div>
           </div>
-        </div>
+
 
       </div>
       

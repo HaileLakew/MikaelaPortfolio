@@ -7,7 +7,7 @@ import * as THREE from "three";
 
 export default function LandingPage () {
     return (
-        <div className='snap-center max-h-[110vh]'>
+        <div className='snap-center max-h-[110vh] font-moret'>
             <motion.div 
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1, transition: { duration: 2 } }}
@@ -15,7 +15,7 @@ export default function LandingPage () {
                 style={{
                     height: '100vh', 
                     width: '100vw', 
-                    color: '#F2EBE3', 
+                    // color: '#F2EBE3', 
                     filter: 'blur(50px)'
                   }}
             >

@@ -15,7 +15,19 @@
   * {
       user-select: none;
       cursor: none;
+    }
+
+  .font-moret {
       font-family: 'moret';
+    }
+
+  .font-gill-sans {
+      font-family: 'gill-sans-nova';
+    }
+
+  .font-lato {
+      font-family: 'lato';
+      font-weight: bold;
     }
 
   .cursor {

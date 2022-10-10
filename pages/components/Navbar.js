@@ -6,7 +6,7 @@ export default function Navbar({textEnter, textLeave}) {
 
     const sidebar = {
         open: {
-            bottom: 0,
+            top: 0,
             transition: {
                 type: "spring",
                 stiffness: 400,
@@ -34,7 +34,7 @@ export default function Navbar({textEnter, textLeave}) {
             animate={isOpen ? "open" : "closed"}
             className='flex sticky top-0 justify-end z-40 pointerBody'>
 
-            <motion.div className="bg-[#d8c1a7] w-screen h-screen fixed p-10" variants={sidebar} >
+            <motion.div className="bg-[#d8c1a7] w-screen h-screen fixed p-[10%]" variants={sidebar} >
 
                 {"PROJECTS ABOUT CONNECT".split(` `).map((word, index) => {
                     return (

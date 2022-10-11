@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import Navbar from './components/Navbar';
 import Introduction from './sections/Introduction';
 import LandingPage from './sections/LandingPage'
+import ScrollingSkill from './sections/ScrollingSkill';
 
 export default function Home() {
   const [cursorVariant, setCursorVariant] = useState("default");
@@ -45,7 +46,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
         <link rel="stylesheet" href='https://use.typekit.net/hcu8dkr.css'/>
         <link rel="preconnect" href="https://fonts.googleapis.com"/>
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin/>
         <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100&display=swap" rel="stylesheet"/>
       </Head>
       
@@ -81,6 +82,13 @@ export default function Home() {
             </div>
           </div>
 
+        <ScrollingSkill/>
+
+        <div className="h-screen w-screen snap-center">
+            <div className='text-9xl'>
+              Lorem Ipsum 
+            </div>
+          </div>
 
       </div>
       

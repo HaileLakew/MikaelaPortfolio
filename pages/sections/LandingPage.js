@@ -15,7 +15,6 @@ export default function LandingPage () {
                 style={{
                     height: '100vh', 
                     width: '100vw', 
-                    // color: '#F2EBE3', 
                     filter: 'blur(50px)'
                   }}
             >

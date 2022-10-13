@@ -1,12 +1,10 @@
-import { motion } from 'framer-motion';
-import {  useState } from 'react';
 import { TypeAnimation } from 'react-type-animation';
 
 export default function Introduction({mouseActions}) {
 
 
     return(
-        <div className="flex flex-col text-[#B86F52]
+        <div className="flex flex-col text-[#B86F52] 
             h-screen w-screen snap-center font-lato text-4xl xl:text-8xl leading-[140%] m-6 sm:m-24 max-w-fit">
     
                 <div className='mt-[10%]'>

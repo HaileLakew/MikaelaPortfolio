@@ -1,5 +1,5 @@
 import {motion, useCycle} from 'framer-motion';
-import { useEffect, useRef } from 'react';
+import { useEffect } from 'react';
 
 export default function Navbar({textEnter, textLeave}) {
     const [isOpen, toggleOpen] = useCycle(false, true);
@@ -32,7 +32,7 @@ export default function Navbar({textEnter, textLeave}) {
         <motion.nav 
             initial={false}
             animate={isOpen ? "open" : "closed"}
-            className='flex sticky top-0 justify-end z-40 pointerBody'>
+            className='flex fixed top-0 left-[100vw] justify-end z-40 pointerBody'>
 
             <motion.div className="bg-[#d8c1a7] w-screen h-screen fixed p-[10%]" variants={sidebar} >
 

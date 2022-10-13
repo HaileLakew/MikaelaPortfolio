@@ -1,7 +1,8 @@
 
-import { motion, useDragControls, useMotionValue, useSpring } from 'framer-motion';
+import { motion, useSpring } from 'framer-motion';
 import Head from 'next/head'
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
+import CustomCanvas from '../components/Canvas';
 import Navbar from './components/Navbar';
 import Introduction from './sections/Introduction';
 import LandingPage from './sections/LandingPage'
@@ -56,6 +57,7 @@ export default function Home() {
           textLeave={mouseActions.onMouseLeave}/>
       </div>
 
+
       <motion.div
         className='cursor z-50 hidden md:block'
         variants={variants}
@@ -66,33 +68,34 @@ export default function Home() {
         }}/>
 
       <div 
-          className="bg-[#f2ebe3] snap-y snap-mandatory h-screen overflow-scroll" 
+          className="bg-[#f2ebe3] h-[500vh] overflow-scroll" 
           id="body"
           onMouseMove={handleMouse}
         >
- 
+
+        <CustomCanvas/>
+
         <LandingPage />
 
         <Introduction mouseActions={mouseActions}/>
 
-
-          <div className="h-screen w-screen snap-center">
-            <div className='text-9xl'>
-              Lorem Ipsum 
-            </div>
+        <div className="h-screen w-screen">
+          <div className='text-9xl'>
+            Lorem Ipsum 
           </div>
+        </div>
 
         <ScrollingSkill/>
 
-        <div className="h-screen w-screen snap-center">
-            <div className='text-9xl'>
-              Lorem Ipsum 
-            </div>
+        <div className="h-screen w-screen">
+          <div className='text-9xl'>
+            Lorem Ipsum 
           </div>
-
+        </div>
       </div>
       
       <footer> </footer>
     </div>
   )
 }
+

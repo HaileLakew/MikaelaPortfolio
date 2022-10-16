@@ -10,7 +10,8 @@ export default function LandingPage () {
                         {`Mikaela Lakew`.split("").map((token, index)=>{
                             return(
                                 <motion.div key={index} style={{margin: `0 ${7 * (token === ' ')}px`}} 
-                                    initial={{ opacity: 0, y: '100%' }} whileInView={{ opacity: 1, y:0, transition: {delay: index/20, duration: 1}}}>
+                                    initial={{ opacity: 0, y: '100%' }} 
+                                    whileInView={{ opacity: 1, y:0, transition: {delay: index/10, duration: 1}}}>
                                         {token}
                                 </motion.div>)
                         })}

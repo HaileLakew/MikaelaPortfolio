@@ -14,11 +14,6 @@ export default function Home() {
   const mouseX = useSpring(0, { stiffness: 100, damping: 10, restDelta: 2, mass: 0.5 })
   const mouseY = useSpring(0, { stiffness: 100, damping: 10, restDelta: 2, mass: 0.5 })
 
-  function handleMouse(event) {
-    mouseX.set(event.pageX - (cursorVariant === "text" ? 75 : 16))
-    mouseY.set(event.pageY - (cursorVariant === "text" ? 75 : 16))
-  }
-
   const variants = {
     default: {
       height: 32,
@@ -39,6 +34,11 @@ export default function Home() {
     onMouseLeave: () => setCursorVariant("default")
   }
 
+  if(typeof window !== 'undefined') onmousemove = (event) => {
+    mouseX.set(event.clientX - (cursorVariant === "text" ? 75 : 16))
+    mouseY.set(event.clientY - (cursorVariant === "text" ? 75 : 16))
+  };
+
   return (
     <div>
       <Head>
@@ -51,12 +51,10 @@ export default function Home() {
         <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100&display=swap" rel="stylesheet"/>
       </Head>
       
-      <div onMouseMove={handleMouse}>
-        <Navbar 
-          textEnter={mouseActions.onMouseEnter} 
-          textLeave={mouseActions.onMouseLeave}/>
-      </div>
 
+      <Navbar 
+        textEnter={mouseActions.onMouseEnter} 
+        textLeave={mouseActions.onMouseLeave}/>
 
       <motion.div
         className='cursor z-50 hidden md:block'
@@ -67,11 +65,7 @@ export default function Home() {
           left: mouseX
         }}/>
 
-      <div 
-          className="bg-[#f2ebe3] h-[500vh] overflow-scroll" 
-          id="body"
-          onMouseMove={handleMouse}
-        >
+      <div className="bg-[#f2ebe3] h-[500vh] overflow-scroll">
 
         <CustomCanvas/>
 

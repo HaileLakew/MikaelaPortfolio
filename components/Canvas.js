@@ -28,6 +28,8 @@ export default function CustomCanvas () {
 
                     <Scroller>
                         <SphereBlobs/>
+
+                        {/* New Models Here */}
                     </Scroller>
 
                     <Preload/>
@@ -48,12 +50,9 @@ export default function CustomCanvas () {
 
 function Scroller ({children}) {
     const { scrollYProgress } = useScroll();
-
     const { camera } = useThree();
 
     useFrame(() => {
-        // console.log(scrollYProgress.get(),  camera.position);
-
         camera.position.y = scrollYProgress.get() * -100 ;
     });
 

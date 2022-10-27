@@ -65,7 +65,7 @@ export default function Home() {
           left: mouseX
         }}/>
 
-      <div className="bg-[#f2ebe3] h-[500vh] overflow-scroll">
+      <div className="bg-[#f2ebe3]">
 
         <CustomCanvas/>
 

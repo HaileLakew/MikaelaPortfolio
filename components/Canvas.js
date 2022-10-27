@@ -53,7 +53,7 @@ function Scroller ({children}) {
     const { camera } = useThree();
 
     useFrame(() => {
-        camera.position.y = scrollYProgress.get() * -100 ;
+        camera.position.y = scrollYProgress.get() * -150 ;
     });
 
     return(

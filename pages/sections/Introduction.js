@@ -1,6 +1,6 @@
 import { TypeAnimation } from 'react-type-animation';
 
-export default function Introduction({mouseActions}) {
+export default function Introduction() {
 
 
     return(

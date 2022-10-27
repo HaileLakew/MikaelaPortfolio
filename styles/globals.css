@@ -6,7 +6,7 @@
     pointer-events: none;
     width: 100vw;
     height: 120vh;
-    background-image: url(/noise.png);
+    background-image: url(/images/noise.png);
     background-size: auto;
     background-repeat: repeat;
     opacity: .07;

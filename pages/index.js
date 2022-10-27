@@ -7,6 +7,7 @@ import Navbar from './components/Navbar';
 import Introduction from './sections/Introduction';
 import LandingPage from './sections/LandingPage'
 import ScrollingSkill from './sections/ScrollingSkill';
+import MediaGallery from './sections/MediaGallery';
 
 export default function Home() {
   const [cursorVariant, setCursorVariant] = useState("default");
@@ -65,23 +66,20 @@ export default function Home() {
           left: mouseX
         }}/>
 
-      <div className="bg-[#f2ebe3]">
+      <div className="bg-[#f2ebe3] h-screen overflow-scroll snap-mandatory snap-y">
 
-        <CustomCanvas/>
-
-        <LandingPage />
-
-        <Introduction mouseActions={mouseActions}/>
-
-        <div className="h-screen w-screen">
-          <div className='text-9xl'>
-            Lorem Ipsum 
-          </div>
+        <div className='snap-start' style={{maxHeight: '100vh'}}>
+          <CustomCanvas />
+          <LandingPage />
         </div>
 
-        <ScrollingSkill/>
+        <Introduction />
 
-        <div className="h-screen w-screen">
+        <MediaGallery mouseActions={mouseActions}/>
+
+        <ScrollingSkill />
+
+        <div className="h-screen w-screen snap-center">
           <div className='text-9xl'>
             Lorem Ipsum 
           </div>

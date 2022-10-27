@@ -2,9 +2,9 @@ import { motion } from "framer-motion";
 
 export default function LandingPage () {
     return (
-        <div className="h-screen font-moret"> 
-            <div className="noise"/>
-            <div className="absolute top-1/4 left-1/4 text-5xl md:text-8xl lg:text-9xl font-bold opacity-70 text-white mix-blend-overlay pointer-events-none">
+        <div className="font-moret"> 
+            <div className="noise relative bottom-[100vh]"/>
+            <div className="relative bottom-[200vh] text-5xl md:text-8xl lg:text-9xl font-bold opacity-70 text-white mix-blend-overlay pointer-events-none">
                 <div className="m-10 overflow-hidden">
                     <div className="flex justify-center"> 
                         {`Mikaela Lakew`.split("").map((token, index)=>{

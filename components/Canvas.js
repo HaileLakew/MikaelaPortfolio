@@ -8,7 +8,7 @@ import SphereBlobs from './SphereBlobs'
 
 export default function CustomCanvas () {
     return (
-        <div className='snap-center font-moret fixed top-0'>
+        <div className='font-moret'>
             <motion.div 
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1, transition: { duration: 2 } }}
@@ -26,11 +26,7 @@ export default function CustomCanvas () {
 
                     <pointLight intensity={1.25} position={[10, 10, 10]}/>
 
-                    <Scroller>
-                        <SphereBlobs/>
-
-                        {/* New Models Here */}
-                    </Scroller>
+                    <SphereBlobs/>
 
                     <Preload/>
 
@@ -53,7 +49,7 @@ function Scroller ({children}) {
     const { camera } = useThree();
 
     useFrame(() => {
-        camera.position.y = scrollYProgress.get() * -150 ;
+        camera.position.y = scrollYProgress.get() * -50 ;
     });
 
     return(

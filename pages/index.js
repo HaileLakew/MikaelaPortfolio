@@ -66,7 +66,7 @@ export default function Home() {
           left: mouseX
         }}/>
 
-      <div className="bg-[#f2ebe3] h-screen overflow-scroll snap-mandatory snap-y">
+      <div className="bg-[#f2ebe3] h-screen snap-mandatory snap-y">
 
         <div className='snap-start' style={{maxHeight: '100vh'}}>
           <CustomCanvas />

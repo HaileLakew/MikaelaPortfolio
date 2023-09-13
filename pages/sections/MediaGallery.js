@@ -2,12 +2,14 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { useState } from "react";
 
+import SampleImage from '../../public/images/Sample0.jpeg';
+
 export default function MediaGallery({ mouseActions }) {
     const [isOpen, setIsOpen] = useState(false)
 
     const variants = {
         open: { width: '200vw'  },
-        closed: { width: '100vw'  },
+        closed: { width: '50vw'  },
       }
 
     return(
@@ -16,7 +18,7 @@ export default function MediaGallery({ mouseActions }) {
                 variants={variants} onClick={() => setIsOpen(isOpen => !isOpen)} transition={{ ease: "easeOut", duration: .75 }}>
                 {Array(5).fill().map((_, index) => {
                     return (
-                        <motion.div className='m-5' key={index}
+                        <motion.div className='m-5 relative' key={index}
                                 onMouseEnter={mouseActions.onMouseEnter}
                                 onMouseLeave={mouseActions.onMouseLeave}
                                 whileHover={{ scale: .8, transition: { duration: .5 } }}
@@ -25,8 +27,7 @@ export default function MediaGallery({ mouseActions }) {
                                 viewport={{ once: true }}
                                 >
                             <Image 
-                            className='h-[80vh] object-cover' src={`/images/Sample${index}.jpeg`}
-                            height={500} width={500} alt='image'/>
+                            className='h-[80vh] object-cover' src={SampleImage} alt='image'/>
                         </motion.div>
                     )
                 })}
